@@ -12,6 +12,7 @@ namespace CvSite
     public class Startup
     {
         public int MyProperty { get; set; }
+        public int MyProperty1 { get; set; }
 
         public Startup(IConfiguration configuration)
         {
