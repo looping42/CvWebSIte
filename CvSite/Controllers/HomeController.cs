@@ -14,15 +14,17 @@ namespace CvSite.Controllers
         {
             ViewData["date"] = DateTime.Now.ToLongDateString();
             ApiWeather apiWeather = new ApiWeather();
-            OpenWeatherResponse weatherResponse = apiWeather.GetCity(2992890).Result;
+            OpenWeatherResponse weatherResponse = apiWeather.GetCity(2992890).Result; /*id montbrison*/
+
             return View(weatherResponse);
         }
 
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
-            return View();
+            ApiGoogleNews apiGoogleNews = new ApiGoogleNews();
+            GoogleNews googleNews = apiGoogleNews.GetNews().Result;
+            return View(googleNews);
         }
 
         public IActionResult Contact()
