@@ -12,7 +12,10 @@ namespace CvSite.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            ViewData["date"] = DateTime.Now.ToLongDateString();
+            ApiWeather apiWeather = new ApiWeather();
+            OpenWeatherResponse weatherResponse = apiWeather.GetCity(2992890).Result;
+            return View(weatherResponse);
         }
 
         public IActionResult About()
@@ -23,6 +26,13 @@ namespace CvSite.Controllers
         }
 
         public IActionResult Contact()
+        {
+            ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+
+        public IActionResult CVIndex()
         {
             ViewData["Message"] = "Your contact page.";
 
